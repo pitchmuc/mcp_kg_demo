@@ -1,0 +1,327 @@
+@prefix crm: <http://example.org/crm#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+#################################################################
+# Ontology (lightweight, informal — see docs/ontology in README)
+#################################################################
+
+crm:Account a rdfs:Class ;
+    rdfs:comment "An enterprise customer organization." .
+
+crm:Contact a rdfs:Class ;
+    rdfs:comment "A person employed at an Account." .
+
+#################################################################
+# Accounts (fictional enterprises — any resemblance to real
+# companies is coincidental)
+#################################################################
+
+crm:acct-atlasforge a crm:Account ;
+    crm:name "AtlasForge Manufacturing" ;
+    crm:industry "Industrial Manufacturing" ;
+    crm:tier "Strategic" ;
+    crm:region "NA" ;
+    crm:arrUsd 1250000 ;
+    crm:employeeCount 8400 ;
+    crm:healthScore 82 ;
+    crm:renewalDate "2026-03-15"^^xsd:date ;
+    crm:accountOwner "Priya Natarajan" ;
+    crm:website "https://www.atlasforge-example.com" .
+
+crm:acct-brightharbor a crm:Account ;
+    crm:name "BrightHarbor Financial Group" ;
+    crm:industry "Financial Services" ;
+    crm:tier "Enterprise" ;
+    crm:region "NA" ;
+    crm:arrUsd 640000 ;
+    crm:employeeCount 3200 ;
+    crm:healthScore 58 ;
+    crm:renewalDate "2025-12-01"^^xsd:date ;
+    crm:accountOwner "Marcus Webb" ;
+    crm:website "https://www.brightharbor-example.com" .
+
+crm:acct-cindralogic a crm:Account ;
+    crm:name "Cindra Logic Systems" ;
+    crm:industry "Software & Technology" ;
+    crm:tier "Strategic" ;
+    crm:region "EMEA" ;
+    crm:arrUsd 980000 ;
+    crm:employeeCount 5100 ;
+    crm:healthScore 91 ;
+    crm:renewalDate "2026-07-22"^^xsd:date ;
+    crm:accountOwner "Priya Natarajan" ;
+    crm:website "https://www.cindralogic-example.com" .
+
+crm:acct-dunwich-retail a crm:Account ;
+    crm:name "Dunwich Retail Holdings" ;
+    crm:industry "Retail" ;
+    crm:tier "Mid-Market" ;
+    crm:region "NA" ;
+    crm:arrUsd 210000 ;
+    crm:employeeCount 1450 ;
+    crm:healthScore 47 ;
+    crm:renewalDate "2025-11-30"^^xsd:date ;
+    crm:accountOwner "Elena Souza" ;
+    crm:website "https://www.dunwichretail-example.com" .
+
+crm:acct-everline-health a crm:Account ;
+    crm:name "Everline Health Networks" ;
+    crm:industry "Healthcare" ;
+    crm:tier "Enterprise" ;
+    crm:region "NA" ;
+    crm:arrUsd 875000 ;
+    crm:employeeCount 6200 ;
+    crm:healthScore 74 ;
+    crm:renewalDate "2026-01-18"^^xsd:date ;
+    crm:accountOwner "Marcus Webb" ;
+    crm:website "https://www.everlinehealth-example.com" .
+
+crm:acct-fjordwave a crm:Account ;
+    crm:name "FjordWave Logistics" ;
+    crm:industry "Transportation & Logistics" ;
+    crm:tier "Mid-Market" ;
+    crm:region "EMEA" ;
+    crm:arrUsd 305000 ;
+    crm:employeeCount 2100 ;
+    crm:healthScore 66 ;
+    crm:renewalDate "2026-02-09"^^xsd:date ;
+    crm:accountOwner "Elena Souza" ;
+    crm:website "https://www.fjordwave-example.com" .
+
+crm:acct-granvalley a crm:Account ;
+    crm:name "Granvalley Energy Partners" ;
+    crm:industry "Energy & Utilities" ;
+    crm:tier "Strategic" ;
+    crm:region "APAC" ;
+    crm:arrUsd 1420000 ;
+    crm:employeeCount 9800 ;
+    crm:healthScore 88 ;
+    crm:renewalDate "2026-09-05"^^xsd:date ;
+    crm:accountOwner "Wei Chen" ;
+    crm:website "https://www.granvalley-example.com" .
+
+crm:acct-halcyon-edu a crm:Account ;
+    crm:name "Halcyon EdTech Collective" ;
+    crm:industry "Education" ;
+    crm:tier "Mid-Market" ;
+    crm:region "APAC" ;
+    crm:arrUsd 165000 ;
+    crm:employeeCount 980 ;
+    crm:healthScore 39 ;
+    crm:renewalDate "2025-10-12"^^xsd:date ;
+    crm:accountOwner "Wei Chen" ;
+    crm:website "https://www.halcyonedtech-example.com" .
+
+#################################################################
+# Contacts
+#################################################################
+
+crm:contact-adriana-koll a crm:Contact ;
+    crm:name "Adriana Koll" ;
+    crm:worksAt crm:acct-atlasforge ;
+    crm:jobTitle "Chief Information Officer" ;
+    crm:role "Economic Buyer" ;
+    crm:email "adriana.koll@atlasforge-example.com" ;
+    crm:phone "+1-312-555-0148" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-02"^^xsd:date .
+
+crm:contact-ben-osei a crm:Contact ;
+    crm:name "Ben Osei" ;
+    crm:worksAt crm:acct-atlasforge ;
+    crm:jobTitle "Director of Plant Operations" ;
+    crm:role "Influencer" ;
+    crm:email "ben.osei@atlasforge-example.com" ;
+    crm:phone "+1-312-555-0199" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-08-14"^^xsd:date .
+
+crm:contact-camille-hartwell a crm:Contact ;
+    crm:name "Camille Hartwell" ;
+    crm:worksAt crm:acct-brightharbor ;
+    crm:jobTitle "VP of Risk & Compliance" ;
+    crm:role "Economic Buyer" ;
+    crm:email "camille.hartwell@brightharbor-example.com" ;
+    crm:phone "+1-646-555-0110" ;
+    crm:isChampion false ;
+    crm:sentiment "Negative" ;
+    crm:lastContactedDate "2025-07-28"^^xsd:date .
+
+crm:contact-derek-nolan a crm:Contact ;
+    crm:name "Derek Nolan" ;
+    crm:worksAt crm:acct-brightharbor ;
+    crm:jobTitle "Senior Systems Analyst" ;
+    crm:role "User" ;
+    crm:email "derek.nolan@brightharbor-example.com" ;
+    crm:phone "+1-646-555-0177" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-10"^^xsd:date .
+
+crm:contact-elif-yavuz a crm:Contact ;
+    crm:name "Elif Yavuz" ;
+    crm:worksAt crm:acct-cindralogic ;
+    crm:jobTitle "Chief Technology Officer" ;
+    crm:role "Economic Buyer" ;
+    crm:email "elif.yavuz@cindralogic-example.com" ;
+    crm:phone "+44-20-7946-0958" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-18"^^xsd:date .
+
+crm:contact-farid-abbas a crm:Contact ;
+    crm:name "Farid Abbas" ;
+    crm:worksAt crm:acct-cindralogic ;
+    crm:jobTitle "Engineering Manager" ;
+    crm:role "Champion" ;
+    crm:email "farid.abbas@cindralogic-example.com" ;
+    crm:phone "+44-20-7946-0231" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-20"^^xsd:date .
+
+crm:contact-grace-lindqvist a crm:Contact ;
+    crm:name "Grace Lindqvist" ;
+    crm:worksAt crm:acct-cindralogic ;
+    crm:jobTitle "Procurement Lead" ;
+    crm:role "Influencer" ;
+    crm:email "grace.lindqvist@cindralogic-example.com" ;
+    crm:phone "+44-20-7946-0455" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-06-30"^^xsd:date .
+
+crm:contact-hugo-marchetti a crm:Contact ;
+    crm:name "Hugo Marchetti" ;
+    crm:worksAt crm:acct-dunwich-retail ;
+    crm:jobTitle "Head of Store Technology" ;
+    crm:role "Influencer" ;
+    crm:email "hugo.marchetti@dunwichretail-example.com" ;
+    crm:phone "+1-212-555-0134" ;
+    crm:isChampion false ;
+    crm:sentiment "Negative" ;
+    crm:lastContactedDate "2025-05-22"^^xsd:date .
+
+crm:contact-ines-dubois a crm:Contact ;
+    crm:name "Ines Dubois" ;
+    crm:worksAt crm:acct-dunwich-retail ;
+    crm:jobTitle "Chief Financial Officer" ;
+    crm:role "Economic Buyer" ;
+    crm:email "ines.dubois@dunwichretail-example.com" ;
+    crm:phone "+1-212-555-0187" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-08-01"^^xsd:date .
+
+crm:contact-jonas-eklund a crm:Contact ;
+    crm:name "Jonas Eklund" ;
+    crm:worksAt crm:acct-everline-health ;
+    crm:jobTitle "VP of Clinical Systems" ;
+    crm:role "Economic Buyer" ;
+    crm:email "jonas.eklund@everlinehealth-example.com" ;
+    crm:phone "+1-617-555-0142" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-05"^^xsd:date .
+
+crm:contact-keiko-mizuno a crm:Contact ;
+    crm:name "Keiko Mizuno" ;
+    crm:worksAt crm:acct-everline-health ;
+    crm:jobTitle "Data Privacy Officer" ;
+    crm:role "Influencer" ;
+    crm:email "keiko.mizuno@everlinehealth-example.com" ;
+    crm:phone "+1-617-555-0166" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-07-11"^^xsd:date .
+
+crm:contact-liam-oconnor a crm:Contact ;
+    crm:name "Liam O'Connor" ;
+    crm:worksAt crm:acct-fjordwave ;
+    crm:jobTitle "Director of IT Infrastructure" ;
+    crm:role "Champion" ;
+    crm:email "liam.oconnor@fjordwave-example.com" ;
+    crm:phone "+353-1-555-0129" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-12"^^xsd:date .
+
+crm:contact-mireille-fontaine a crm:Contact ;
+    crm:name "Mireille Fontaine" ;
+    crm:worksAt crm:acct-fjordwave ;
+    crm:jobTitle "Fleet Operations Manager" ;
+    crm:role "User" ;
+    crm:email "mireille.fontaine@fjordwave-example.com" ;
+    crm:phone "+353-1-555-0176" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-06-19"^^xsd:date .
+
+crm:contact-noah-petrov a crm:Contact ;
+    crm:name "Noah Petrov" ;
+    crm:worksAt crm:acct-granvalley ;
+    crm:jobTitle "Chief Operating Officer" ;
+    crm:role "Economic Buyer" ;
+    crm:email "noah.petrov@granvalley-example.com" ;
+    crm:phone "+61-2-5550-0113" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-22"^^xsd:date .
+
+crm:contact-olga-sokolova a crm:Contact ;
+    crm:name "Olga Sokolova" ;
+    crm:worksAt crm:acct-granvalley ;
+    crm:jobTitle "Sustainability Program Lead" ;
+    crm:role "Influencer" ;
+    crm:email "olga.sokolova@granvalley-example.com" ;
+    crm:phone "+61-2-5550-0187" ;
+    crm:isChampion false ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-08-27"^^xsd:date .
+
+crm:contact-parth-mehta a crm:Contact ;
+    crm:name "Parth Mehta" ;
+    crm:worksAt crm:acct-granvalley ;
+    crm:jobTitle "Enterprise Architect" ;
+    crm:role "Champion" ;
+    crm:email "parth.mehta@granvalley-example.com" ;
+    crm:phone "+61-2-5550-0142" ;
+    crm:isChampion true ;
+    crm:sentiment "Positive" ;
+    crm:lastContactedDate "2025-09-19"^^xsd:date .
+
+crm:contact-quiara-santos a crm:Contact ;
+    crm:name "Quiara Santos" ;
+    crm:worksAt crm:acct-halcyon-edu ;
+    crm:jobTitle "Dean of Digital Learning" ;
+    crm:role "Economic Buyer" ;
+    crm:email "quiara.santos@halcyonedtech-example.com" ;
+    crm:phone "+61-3-5550-0155" ;
+    crm:isChampion false ;
+    crm:sentiment "Negative" ;
+    crm:lastContactedDate "2025-04-30"^^xsd:date .
+
+crm:contact-ravi-shankar a crm:Contact ;
+    crm:name "Ravi Shankar" ;
+    crm:worksAt crm:acct-halcyon-edu ;
+    crm:jobTitle "IT Support Lead" ;
+    crm:role "User" ;
+    crm:email "ravi.shankar@halcyonedtech-example.com" ;
+    crm:phone "+61-3-5550-0188" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-05-15"^^xsd:date .
+
+crm:contact-sofia-bianchi a crm:Contact ;
+    crm:name "Sofia Bianchi" ;
+    crm:worksAt crm:acct-cindralogic ;
+    crm:jobTitle "General Counsel" ;
+    crm:role "Influencer" ;
+    crm:email "sofia.bianchi@cindralogic-example.com" ;
+    crm:phone "+44-20-7946-0602" ;
+    crm:isChampion false ;
+    crm:sentiment "Neutral" ;
+    crm:lastContactedDate "2025-07-02"^^xsd:date .
