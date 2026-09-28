@@ -29,6 +29,12 @@ include = ["src/kg_mcp_server/**/*.py", "README.md", ".env.example", "data/knowl
 [tool.hatch.build.targets.wheel]
 packages = ["src/kg_mcp_server"]
 
+# Bundle the Turtle file inside the installed package (rather than relying on
+# a path relative to the repo root) so it is still locatable after a
+# non-editable `pip install .` — e.g. in the Docker image deployed to Render.
+[tool.hatch.build.targets.wheel.force-include]
+"data/knowledge_graph.ttl" = "kg_mcp_server/data/knowledge_graph.ttl"
+
 [tool.hatch.envs.default.scripts]
 test = "pytest -q"
 
