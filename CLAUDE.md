@@ -68,6 +68,7 @@ uv sync --all-extras
 | `KG_GRAPH_FORMAT` | No | RDF serialization format. Defaults to `turtle`. |
 | `MCP_TRANSPORT` | No | `stdio` (default), `sse`, `http`, or `streamable-http`. |
 | `FASTMCP_HOST` | No | Bind host for HTTP transport (default `127.0.0.1`; use `0.0.0.0` in Docker/Render). |
+| `PORT` / `FASTMCP_PORT` | No | Bind port for HTTP transport (default `8000`). `PORT` takes priority (set automatically by Render); `FASTMCP_PORT` is a manual override. |
 | `MCP_CLIENT_ID` / `MCP_CLIENT_SECRET` / `MCP_SERVER_URL` | No | Enable OAuth 2.0 (authorization code + PKCE) protection on the HTTP endpoint. |
 
 ---

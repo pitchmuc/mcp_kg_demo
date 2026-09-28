@@ -14,11 +14,25 @@ from kg_mcp_server.mcp_instance import MCP_HOST
 
 logger = logging.getLogger("kg_mcp_server")
 
-# mcp>=2's run_streamable_http_async() defaults these itself; kept here as
-# named constants (rather than inline literals below) since start_server also
-# needs them to log the URL before run() blocks.
-_DEFAULT_PORT = 8000
+# mcp>=2's run_streamable_http_async() defaults these itself; kept here as a
+# named constant (rather than an inline literal below) since start_server also
+# needs it to log the URL before run() blocks.
 _DEFAULT_STREAMABLE_HTTP_PATH = "/mcp"
+
+
+def _resolve_port() -> int:
+    """
+    Resolve the HTTP bind port.
+
+    Render (and most PaaS providers) inject a `PORT` env var and require the
+    process to listen on it, so it takes priority. `FASTMCP_PORT` is kept as
+    an explicit override for local/manual deployments, falling back to 8000.
+    """
+    port_str = os.getenv("PORT") or os.getenv("FASTMCP_PORT") or "8000"
+    try:
+        return int(port_str)
+    except ValueError as exc:
+        raise ValueError(f"Invalid port value: {port_str!r}. Must be an integer.") from exc
 
 
 class TransportAliases(str, Enum):
@@ -72,15 +86,16 @@ def start_server(mcp_instance: MCPServer, transport: TransportAliases) -> None:
         logger.info("Starting MCP server with stdio transport.")
         mcp_instance.run()
     else:  # STREAMABLE_HTTP
+        port = _resolve_port()
         logger.info(
             "Starting MCP server with Streamable HTTP transport at http://%s:%s%s.",
             MCP_HOST,
-            _DEFAULT_PORT,
+            port,
             _DEFAULT_STREAMABLE_HTTP_PATH,
         )
         mcp_instance.run(
             transport="streamable-http",
             host=MCP_HOST,
-            port=_DEFAULT_PORT,
+            port=port,
             streamable_http_path=_DEFAULT_STREAMABLE_HTTP_PATH,
         )

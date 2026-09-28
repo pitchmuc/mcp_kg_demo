@@ -9,8 +9,9 @@ services:
         value: http
       - key: FASTMCP_HOST
         value: 0.0.0.0
-      - key: FASTMCP_PORT
-        value: 8000
+      # Render injects PORT automatically at runtime; the server reads it
+      # directly (falling back to FASTMCP_PORT, then 8000). No need to set
+      # PORT here — Render manages it.
       # Optional OAuth protection — uncomment and set to secure the endpoint.
       # - key: MCP_CLIENT_ID
       #   value: kg-mcp
